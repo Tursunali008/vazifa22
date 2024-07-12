@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652952883782",
+    "project_id": "set-restaran-my-app",
+    "storage_bucket": "set-restaran-my-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652952883782:android:7c002996c01030e221b047",
+        "android_client_info": {
+          "package_name": "com.example.vazifa22"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2Jz1rmRHmADVK3WgAHZ0j3FbzC4VnNMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
