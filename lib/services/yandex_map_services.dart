@@ -63,4 +63,35 @@ class YandexMapService {
 
     return suggestionResult.items ?? [];
   }
+
+  static Future<String> getAddressByPoint(Point point) async {
+    try {
+      final searchSession = await YandexSearch.searchByPoint(
+        point: point,
+        searchOptions: SearchOptions(searchType: SearchType.geo),
+      );
+
+      final searchResult = await searchSession.$2;
+      if (searchResult.error != null) {
+        print('Error searching by point: ${searchResult.error}');
+        return 'Address not found';
+      }
+
+      final items = searchResult.items;
+      if (items != null && items.isNotEmpty) {
+        final firstItem = items.first;
+        final toponymMetadata = firstItem.toponymMetadata;
+        if (toponymMetadata != null) {
+          return toponymMetadata.address.formattedAddress;
+        } else {
+          return 'Address not found';
+        }
+      } else {
+        return 'Address not found';
+      }
+    } catch (e) {
+      print('Exception while searching by point: $e');
+      return 'Address not found';
+    }
+  }
 }

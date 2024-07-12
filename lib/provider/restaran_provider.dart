@@ -22,4 +22,22 @@ class RestaurantProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void updateRestaurantImage(int index, String imagePath) {
+    if (index >= 0 && index < _restaurants.length) {
+      _restaurants[index] = Restaurant(
+        name: _restaurants[index].name,
+        imagePath: imagePath,
+        location: _restaurants[index].location,
+      );
+      notifyListeners();
+    }
+  }
+
+  void removeRestaurant(int index) {
+    if (index >= 0 && index < _restaurants.length) {
+      _restaurants.removeAt(index);
+      notifyListeners();
+    }
+  }
 }
